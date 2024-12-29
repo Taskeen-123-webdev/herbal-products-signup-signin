@@ -1,0 +1,279 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Body and Background */
+body {
+    background: linear-gradient(135deg, #d4f1d1, #9afc89); /* Lighter green shades */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #333;
+    overflow: hidden;
+    flex-direction: column;
+    text-align: center;
+}
+
+/* Container Styling */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+}
+
+/* Logo Section */
+.logo-container {
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.logo {
+    width: 100px; /* Logo size */
+    height: auto;
+}
+
+/* Form Container */
+.form-container {
+    background: #fff;
+    box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.1); /* Softer shadow */
+    padding: 30px 30px; /* Reduced padding */
+    border-radius: 12px;
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+    transform: translateY(20px);
+    opacity: 0;
+    animation: slideUp 1s ease-out forwards;
+    border: 3px solid #9afc89; /* Lighter green border */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decorative animation */
+.form-container::before {
+    content: "";
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: rgba(154, 252, 137, 0.2);
+    top: -100px;
+    left: -100px;
+    border-radius: 50%;
+    animation: pulse 5s infinite ease-in-out;
+    z-index: -1;
+}
+
+.form-container::after {
+    content: "";
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: rgba(154, 252, 137, 0.2);
+    bottom: -50px;
+    right: -50px;
+    border-radius: 50%;
+    animation: pulse 6s infinite ease-in-out;
+    z-index: -1;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+/* Slide-up Animation */
+@keyframes slideUp {
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Heading */
+h1 {
+    margin-bottom: 10px;
+    font-size: 2.4em;
+    color: #388e3c;
+    letter-spacing: 1px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/* Subtitle */
+.subtitle {
+    font-size: 1em;
+    color: #777;
+    margin-bottom: 25px;
+}
+
+/* Urdu Quote Styling */
+.subtitle-urdu {
+    font-size: 1rem;
+    color: #666;
+    font-weight: bold;
+    margin: 20px;
+}
+
+/* Input Fields */
+.input-group {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1.1em;
+    outline: none;
+    transition: all 0.3s ease;
+    background-color: #f9f9f9;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.input-group input:focus {
+    border-color: #388e3c;
+    background-color: #e9f4ef;
+}
+
+.input-group input::placeholder {
+    color: #888;
+    font-style: italic;
+}
+
+/* Icons in Input Fields */
+.input-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #388e3c;
+    font-size: 1.2em;
+}
+
+/* Button Styling */
+button {
+    width: 100%;
+    padding: 15px;
+    background-color: #388e3c;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    background-color: #2c6f2e;
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Link Styling */
+.login-text {
+    margin-top: 15px;
+    font-size: 0.9em;
+    color: #555;
+}
+
+.login-text a {
+    color: #388e3c;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.login-text a:hover {
+    text-decoration: underline;
+}
+
+/* For screens smaller than 768px (Tablets and Below) */
+@media (max-width: 768px) {
+    .logo {
+        width: 80px;  /* Smaller logo for mobile/tablet */
+    }
+
+    .form-container {
+        padding: 20px;  /* Less padding for smaller screens */
+        max-width: 90%;  /* Make form container width responsive */
+    }
+
+    h1 {
+        font-size: 2em;  /* Smaller font size */
+    }
+
+    .subtitle {
+        font-size: 0.9em;  /* Adjust font size for subtitle */
+    }
+
+    .input-group input {
+        font-size: 1em;  /* Adjust input font size */
+    }
+
+    button {
+        font-size: 1em;  /* Adjust button font size */
+    }
+}
+
+/* For screens smaller than 480px (Mobile Phones) */
+@media (max-width: 480px) {
+    .logo {
+        width: 70px;  /* Even smaller logo */
+    }
+
+    .form-container {
+        padding: 15px;  /* Reduce padding even further */
+        max-width: 100%;  /* Make form container 100% width */
+    }
+
+    h1 {
+        font-size: 1.8em;  /* Adjust heading size */
+    }
+
+    .subtitle {
+        font-size: 0.85em;  /* Further adjust subtitle size */
+    }
+
+    .input-group input {
+        font-size: 0.9em;  /* Smaller input font */
+    }
+
+    button {
+        font-size: 0.9em;  /* Smaller button font */
+    }
+}
+
+/* For very large screens (Desktops) */
+@media (min-width: 1200px) {
+    .form-container {
+        max-width: 500px;  /* Larger form for larger screens */
+    }
+
+    h1 {
+        font-size: 2.5em;  /* Larger heading */
+    }
+
+    .subtitle {
+        font-size: 1.1em;  /* Larger subtitle for larger screens */
+    }
+}

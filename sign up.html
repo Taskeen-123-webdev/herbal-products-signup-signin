@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create an Account - Herbal Products</title>
+    <link rel="stylesheet" href="sign up .css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Logo Section -->
+        <div class="logo-container">
+            <img src="https://lzd-img-global.slatic.net/3rd/q/aHR0cHM6Ly9zdGF0aWMtMDEuZGFyYXoucGsvb3RoZXIvc2hvcC9jNWE0Y2M5OGJmMWZhNWY4MTQ4MWVjZTk3MzNhNzk0NC5wbmc=_80x80q80.png_.webp" alt="Herbal Products Logo" class="logo">
+        </div>
+        <!-- Form Section -->
+        <div class="form-container">
+            <h1><i class="fas fa-leaf"></i> Create an Account</h1>
+            <p class="subtitle">Join us to explore the natural way of living</p>
+            <p class="subtitle-urdu" style="font-size: 1rem; color: #666; font-weight: bold; margin: 20px;">
+                "قدرتی طرز زندگی دریافت کرنے کے لیے ہمارے ساتھ شامل ہوں"
+            </p>
+            <form id="signUpForm">
+                <div class="input-group">
+                    <i class="fas fa-user input-icon"></i>
+                    <input type="text" id="firstName" placeholder="First Name" required>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-user input-icon"></i>
+                    <input type="text" id="lastName" placeholder="Last Name" required>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-envelope input-icon"></i>
+                    <input type="email" id="email" placeholder="Email" required>
+                </div>
+                <div class="input-group">
+                   
+                    <input type="password" id="password" placeholder="Password" required>
+                    <span class="input-icon" onclick="togglePassword('password')">
+                        <i id="eye-icon" class="fas fa-eye"></i>
+                    </span>
+                </div>
+                <div class="input-group">
+                  
+                    <input type="password" id="repeatPassword" placeholder="Repeat Password" required>
+                    <span class="input-icon" onclick="togglePassword('repeatPassword')">
+                        <i id="eye-icon-repeat" class="fas fa-eye"></i>
+                    </span>
+                </div>
+                <button type="submit" id="signUpButton">
+                    <i class="fas fa-user-plus"></i> Sign Up
+                </button>
+                <p class="login-text">Already have an account? <a href="sign in .html">Login here</a></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Firebase Scripts -->
+    <script src="https://www.gstatic.com/firebasejs/11.1.0/firebase.js"></script>
+    <script type="module" src="./firebaseConfig.js"></script>
+    <script src="./script.js"></script>
+    <script>
+        // Toggle password visibility function
+        function togglePassword(inputId) {
+            const passwordField = document.getElementById(inputId);
+            const eyeIcon = inputId === 'password' ? document.getElementById('eye-icon') : document.getElementById('eye-icon-repeat');
+
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+                eyeIcon.classList.remove("fa-eye");
+                eyeIcon.classList.add("fa-eye-slash"); // Change to eye-slash icon
+            } else {
+                passwordField.type = "password";
+                eyeIcon.classList.remove("fa-eye-slash");
+                eyeIcon.classList.add("fa-eye"); // Change back to eye icon
+            }
+        }
+    </script>
+</body>
+
+</html>
