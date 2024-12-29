@@ -64,3 +64,74 @@ document.getElementById("signUp").addEventListener("click", function (e) {
       alert(`Error! ${errorMessage}`);
     });
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
+import {
+  getAuth,
+  createUserWithEmailAndPassword, signInWithEmailAndPassword,
+
+  
+} from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyDviEChdZkMPd5eMIV35bV-5J-NFHvnF10",
+  authDomain: "formauthentication-76f2a.firebaseapp.com",
+  projectId: "formauthentication-76f2a",
+  storageBucket: "formauthentication-76f2a.firebasestorage.app",
+  messagingSenderId: "1005974325440",
+  appId: "1:1005974325440:web:a0ad899173af99e2e38525",
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+let firstName, lastName, email, password, repeatPassword;
+
+function readForm() {
+  
+  email = document.getElementById("email").value;
+  password = document.getElementById("password").value;
+
+  console.log(firstName, lastName, email, password, repeatPassword);
+}
+document.getElementById("signUp").addEventListener("click", function (e) {
+  e.preventDefault();
+  readForm();
+
+  if ( !email || !password) {
+    alert("Please fill out all fields.");
+    return;
+  }
+
+  signInWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    // Signed in 
+    const user = userCredential.user;
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+  });
